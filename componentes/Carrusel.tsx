@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const imagenes = [
   { src: "/galeria/20231014_130736.jpg", alt: "Foto 1 de la academia" },
@@ -13,6 +13,7 @@ const imagenes = [
 
 export default function Carrusel() {
   const [indice, setIndice] = useState(0);
+  const touchStartX = useRef(0);
 
   const anterior = () => {
     setIndice(indice === 0 ? imagenes.length - 1 : indice - 1);
@@ -22,17 +23,34 @@ export default function Carrusel() {
     setIndice(indice === imagenes.length - 1 ? 0 : indice + 1);
   };
 
-  // Calcula el índice anterior y siguiente (circular)
+  // Detecta dónde el dedo toca la pantalla
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  // Detecta dónde el dedo se levanta y decide la dirección
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diferencia = touchStartX.current - touchEndX;
+
+    // Si deslizó más de 50px, cambia de imagen
+    if (diferencia > 50) siguiente();
+    if (diferencia < -50) anterior();
+  };
+
   const iAnterior = indice === 0 ? imagenes.length - 1 : indice - 1;
   const iSiguiente = indice === imagenes.length - 1 ? 0 : indice + 1;
 
   return (
     <div className="relative w-full max-w-4xl mx-auto py-8">
 
-      {/* Contenedor de las 3 imágenes */}
-      <div className="flex items-center justify-center gap-4">
+      <div
+        className="flex items-center justify-center gap-4"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
 
-        {/* Imagen anterior (izquierda, pequeña y transparente) */}
+        {/* Imagen anterior */}
         <div
           onClick={anterior}
           className="relative w-48 h-48 rounded-xl overflow-hidden shadow-md opacity-40 scale-90 cursor-pointer hover:opacity-60 transition-all duration-500 hidden md:block flex-shrink-0"
@@ -45,7 +63,7 @@ export default function Carrusel() {
           />
         </div>
 
-        {/* Imagen principal (centro, grande) */}
+        {/* Imagen principal */}
         <div className="relative w-full max-w-lg h-[320px] rounded-2xl overflow-hidden shadow-2xl z-10 flex-shrink-0">
           <Image
             src={imagenes[indice].src}
@@ -55,7 +73,7 @@ export default function Carrusel() {
           />
         </div>
 
-        {/* Imagen siguiente (derecha, pequeña y transparente) */}
+        {/* Imagen siguiente */}
         <div
           onClick={siguiente}
           className="relative w-48 h-48 rounded-xl overflow-hidden shadow-md opacity-40 scale-90 cursor-pointer hover:opacity-60 transition-all duration-500 hidden md:block flex-shrink-0"
@@ -69,7 +87,7 @@ export default function Carrusel() {
         </div>
       </div>
 
-      {/* Flecha izquierda (fuera de todo) */}
+      {/* Flecha izquierda */}
       <button
         onClick={anterior}
         className="absolute left-0 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
@@ -77,7 +95,7 @@ export default function Carrusel() {
         ◀
       </button>
 
-      {/* Flecha derecha (fuera de todo) */}
+      {/* Flecha derecha */}
       <button
         onClick={siguiente}
         className="absolute right-0 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
