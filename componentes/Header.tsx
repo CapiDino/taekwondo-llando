@@ -46,7 +46,7 @@ export default function Header() {
         {/* Logo y Nombre */}
         <div className={`text-2xl font-black tracking-wide flex items-center gap-2 ${cinturonActual.texto}`}>
           <Image
-            src="/log/Pixel academia.png"
+            src="/logo/Pixel academia.png"
             alt="Logo Taekwondo Llan-Do"
             width={76}
             height={76}
