@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "../componentes/Header";
 
 export const metadata: Metadata = {
-  title: "TaeKwondo Llan-Do-Cajamarca",
+  title: "Taekwondo Llan Do - Cajamarca",
   description: "Conoce más sobre nuestra academia de artes marciales con sede en Cajamarca! :D",
 };
 
