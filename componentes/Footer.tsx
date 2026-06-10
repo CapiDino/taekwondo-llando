@@ -20,13 +20,23 @@ export default function Footer() {
           {/* Columna 2: Redes sociales */}
           <div>
             <h3 className="text-xl font-bold uppercase mb-4 text-yellow-400">Síguenos</h3>
-            
-            <a  href="https://www.facebook.com/llandotkd"
+
+            <a href="https://www.facebook.com/llandotkd"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors text-lg"
             >
               <span className="text-2xl">📘</span> Facebook - Llan-Do TKD
+            </a>
+
+            <br />
+
+            <a href="https://www.youtube.com/@llandotaekwondo2941"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors text-lg mt-3"
+            >
+              <span className="text-2xl">▶️</span> YouTube - Llan-Do TKD
             </a>
           </div>
 

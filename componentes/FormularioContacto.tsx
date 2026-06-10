@@ -8,36 +8,41 @@ export default function FormularioContacto() {
     e.target.value = e.target.value.replace(/[0-9]/g, "");
   };
 
+  // Función que bloquea letras al escribir
+  const soloNumeros = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+  };
+
   return (
-    <form 
-      action="https://formspree.io/f/mrbkoreb" 
+    <form
+      action="https://formspree.io/f/mrbkoreb"
       method="POST"
       className="max-w-xl mx-auto w-full bg-white shadow-xl rounded-2xl p-8 flex flex-col gap-5 border-t-4 border-[#0b1b3d]"
     >
-      
+
       <div className="flex flex-col md:flex-row gap-5">
         <div className="w-full md:w-1/2 flex flex-col">
           <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Nombre</label>
-          <input 
-            type="text" 
-            name="nombre" 
-            required 
+          <input
+            type="text"
+            name="nombre"
+            required
             onChange={soloLetras}
             pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
-            className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" 
-            placeholder="Tu nombre" 
+            className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
+            placeholder="Tu nombre"
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col">
           <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Apellidos</label>
-          <input 
-            type="text" 
-            name="apellidos" 
-            required 
+          <input
+            type="text"
+            name="apellidos"
+            required
             onChange={soloLetras}
             pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
-            className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" 
-            placeholder="Tus apellidos" 
+            className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
+            placeholder="Tus apellidos"
           />
         </div>
       </div>
@@ -52,13 +57,14 @@ export default function FormularioContacto() {
         <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">
           Teléfono <span className="text-gray-400 text-xs normal-case">(opcional)</span>
         </label>
-        <input 
-          type="tel" 
-          name="telefono" 
+        <input
+          type="tel"
+          name="telefono"
           pattern="[0-9]{9}"
           maxLength={9}
-          className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" 
-          placeholder="999 999 999" 
+          onChange={soloNumeros}
+          className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
+          placeholder="999 999 999"
         />
       </div>
 
