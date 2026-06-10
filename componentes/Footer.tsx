@@ -45,7 +45,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold uppercase mb-4 text-yellow-400">Afiliados a</h3>
             <div className="flex justify-center md:justify-start gap-4">
               <Image src="/logo/logorojo.png" alt="Federación Deportiva Peruana de Taekwondo" width={70} height={70} className="object-contain" />
-              <Image src="/logo/logorojoazul.png" alt="Academia Taekwondo Llan-Do" width={70} height={70} className="object-contain" />
+              <Image src="/logo/pixel-academia.png" alt="Academia Taekwondo Llan-Do" width={70} height={70} className="object-contain" />
               <Image src="/logo/logoazulblanco.png" alt="World Taekwondo" width={70} height={70} className="object-contain" />
             </div>
           </div>
