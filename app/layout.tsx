@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "../componentes/Header";
 
 export const metadata: Metadata = {
-  title: "TaekWondo Llan-Do-Cajamarca",
-  description: "Conoce más sobre nuestra academia de artes marciales :D",
+  title: "TaeKwondo Llan-Do-Cajamarca",
+  description: "Conoce más sobre nuestra academia de artes marciales con sede en Cajamarca! :D",
 };
 
 export default function RootLayout({
