@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "../componentes/Header";
 
 export const metadata: Metadata = {
-  title: "Estructura Base - Semana 2",
-  description: "Navegación One-Page y Componentes",
+  title: "TaekWondo Llan-Do-Cajamarca",
+  description: "Conoce más sobre nuestra academia de artes marciales :D",
 };
 
 export default function RootLayout({
