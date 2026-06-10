@@ -1,4 +1,13 @@
+"use client";
+
+import { useState } from "react";
+
 export default function FormularioContacto() {
+  // Función que bloquea números al escribir
+  const soloLetras = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.value = e.target.value.replace(/[0-9]/g, "");
+  };
+
   return (
     <form 
       action="https://formspree.io/f/mrbkoreb" 
@@ -9,29 +18,55 @@ export default function FormularioContacto() {
       <div className="flex flex-col md:flex-row gap-5">
         <div className="w-full md:w-1/2 flex flex-col">
           <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Nombre</label>
-          {/* Agregamos name="nombre" y required */}
-          <input type="text" name="nombre" required className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" placeholder="Tu nombre" />
+          <input 
+            type="text" 
+            name="nombre" 
+            required 
+            onChange={soloLetras}
+            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
+            className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" 
+            placeholder="Tu nombre" 
+          />
         </div>
         <div className="w-full md:w-1/2 flex flex-col">
           <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Apellidos</label>
-          {/* Agregamos name="apellidos" y required */}
-          <input type="text" name="apellidos" required className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" placeholder="Tus apellidos" />
+          <input 
+            type="text" 
+            name="apellidos" 
+            required 
+            onChange={soloLetras}
+            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
+            className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" 
+            placeholder="Tus apellidos" 
+          />
         </div>
       </div>
 
       <div className="flex flex-col">
         <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Email</label>
-        {/* Agregamos name="email" y required */}
         <input type="email" name="email" required className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" placeholder="tu@correo.com" />
+      </div>
+
+      {/* Campo de teléfono opcional */}
+      <div className="flex flex-col">
+        <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">
+          Teléfono <span className="text-gray-400 text-xs normal-case">(opcional)</span>
+        </label>
+        <input 
+          type="tel" 
+          name="telefono" 
+          pattern="[0-9]{9}"
+          maxLength={9}
+          className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" 
+          placeholder="999 999 999" 
+        />
       </div>
 
       <div className="flex flex-col">
         <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Mensaje</label>
-        {/* Agregamos name="mensaje" y required */}
         <textarea name="mensaje" required className="border-2 border-gray-200 rounded-lg p-3 h-32 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" placeholder="¿En qué podemos ayudarte?"></textarea>
       </div>
 
-      {/* Cambiamos a type="submit" */}
       <button type="submit" className="bg-red-600 text-white font-bold uppercase tracking-wider py-4 mt-2 rounded-lg hover:bg-red-700 hover:shadow-lg transition-all">
         Enviar Mensaje
       </button>
