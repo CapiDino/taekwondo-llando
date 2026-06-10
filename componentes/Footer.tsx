@@ -52,10 +52,11 @@ export default function Footer() {
 
         </div>
 
-        {/* Línea separadora y copyright */}
+        {/* Línea de copyright */}
         <div className="border-t border-gray-600 mt-10 pt-6 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Academia Taekwondo Llan-Do. Todos los derechos reservados.</p>
-          <p className="mt-2">
+          <p>
+            © {new Date().getFullYear()} Academia Taekwondo Llan-Do. Todos los derechos reservados.
+            {" "} | {" "}
             Hecho por{" "}
             <a href="https://github.com/CapiDino"
               target="_blank"
@@ -67,7 +68,7 @@ export default function Footer() {
           </p>
         </div>
 
-      </div>  {/* ← Este te faltaba */}
+      </div>
     </footer>
   );
 }
