@@ -56,12 +56,12 @@ export default function Footer() {
         <div className="border-t border-gray-600 mt-10 pt-6 text-center text-sm text-gray-400">
           <p>
             © {new Date().getFullYear()} Academia Taekwondo Llan-Do. Todos los derechos reservados.
-            {" "} | {" "}
+            {" "}   |   {" "}
             Hecho por{" "}
             <a href="https://github.com/CapiDino"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-400 hover:text-yellow-300 transition-colors"
+              className="transition-colors"
             >
               Cristopher Pulache
             </a>
