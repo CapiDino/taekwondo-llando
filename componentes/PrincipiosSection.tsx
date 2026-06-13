@@ -6,10 +6,10 @@ import { FaHandshake, FaBalanceScale, FaMountain, FaBrain, FaFire } from "react-
 
 // Mapa de iconos
 const iconos: Record<string, React.ReactNode> = {
-  cortesia:      <FaHandshake className="text-5xl text-yellow-500" />,
+  cortesia:      <FaHandshake className="text-5xl text-gray-400" />,
   integridad:    <FaBalanceScale className="text-5xl text-yellow-500" />,
-  perseverancia: <FaMountain className="text-5xl text-yellow-500" />,
-  autocontrol:   <FaBrain className="text-5xl text-yellow-500" />,
+  perseverancia: <FaMountain className="text-5xl text-green-600" />,
+  autocontrol:   <FaBrain className="text-5xl text-blue-600" />,
   espiritu:      <FaFire className="text-5xl text-red-600" />,
 };
 
