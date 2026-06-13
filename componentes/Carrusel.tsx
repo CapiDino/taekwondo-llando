@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useState, useRef } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // Ahora cada elemento tiene un "tipo": video o imagen
 const contenidos = [
-  { tipo: "video",  src: "https://www.youtube.com/embed/JFbZaA4HTko", alt: "Video de la academia" },
+  { tipo: "video", src: "https://www.youtube.com/embed/JFbZaA4HTko", alt: "Video de la academia" },
   { tipo: "imagen", src: "/galeria/20231014_130736.jpg", alt: "Foto 1 de la academia" },
   { tipo: "imagen", src: "/galeria/20231014_145831.jpg", alt: "Foto 2 de la academia" },
   { tipo: "imagen", src: "/galeria/20231014_150719.jpg", alt: "Foto 3 de la academia" },
@@ -98,7 +99,7 @@ export default function Carrusel() {
         onClick={anterior}
         className="absolute left-0 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
       >
-        ◀
+        <FaChevronLeft />
       </button>
 
       {/* Flecha derecha */}
@@ -106,18 +107,17 @@ export default function Carrusel() {
         onClick={siguiente}
         className="absolute right-0 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
       >
-        ▶
+        <FaChevronRight />
       </button>
-
+    
       {/* Puntos indicadores */}
       <div className="flex justify-center gap-2 mt-6">
         {contenidos.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndice(i)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              i === indice ? "bg-red-600" : "bg-gray-300"
-            }`}
+            className={`w-3 h-3 rounded-full transition-colors ${i === indice ? "bg-red-600" : "bg-gray-300"
+              }`}
           />
         ))}
       </div>
