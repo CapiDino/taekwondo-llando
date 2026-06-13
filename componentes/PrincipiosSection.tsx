@@ -2,6 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import { listaPrincipios } from "../data/principios";
+import { FaHandshake, FaBalanceScale, FaMountain, FaBrain, FaFire } from "react-icons/fa";
+
+// Mapa de iconos
+const iconos: Record<string, React.ReactNode> = {
+  cortesia:      <FaHandshake className="text-5xl text-yellow-500" />,
+  integridad:    <FaBalanceScale className="text-5xl text-yellow-500" />,
+  perseverancia: <FaMountain className="text-5xl text-yellow-500" />,
+  autocontrol:   <FaBrain className="text-5xl text-yellow-500" />,
+  espiritu:      <FaFire className="text-5xl text-red-600" />,
+};
 
 // Componente para cada tarjeta con animación
 function TarjetaPrincipio({ principio, delay }: { principio: any; delay: number }) {
