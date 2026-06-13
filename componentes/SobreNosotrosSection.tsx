@@ -24,15 +24,15 @@ export default function SobreNosotrosSection() {
           </p>
           <ul className="space-y-4 font-medium text-gray-800 inline-block text-left">
             <li className="flex items-center gap-3">
-              <FaCheckCircle className="text-[#0b1b3d] text-xl flex-shrink-0" />
+              <FaCheckCircle className="text-red-600 text-xl flex-shrink-0" />
               Clases para todas las edades y niveles.
             </li>
             <li className="flex items-center gap-3">
-              <FaCheckCircle className="text-[#0b1b3d] text-xl flex-shrink-0" />
+              <FaCheckCircle className="text-red-600 text-xl flex-shrink-0" />
               Defensa personal y acondicionamiento físico.
             </li>
             <li className="flex items-center gap-3">
-              <FaCheckCircle className="text-[#0b1b3d] text-xl flex-shrink-0" />
+              <FaCheckCircle className="text-red-600 text-xl flex-shrink-0" />
               Preparación para torneos locales y nacionales.
             </li>
           </ul>
