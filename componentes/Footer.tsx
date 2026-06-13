@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaFacebook, FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaInstagram, FaTiktok, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { redesSociales } from "../data/redes";
 
 
@@ -22,10 +22,18 @@ export default function Footer() {
           {/* Columna 1: Contacto */}
           <div>
             <h3 className="text-xl font-bold uppercase mb-4 text-yellow-400">Contacto</h3>
-            <p className="mb-2">📞 Cel 1: <a href="tel:950452949" className="hover:text-yellow-400 transition-colors">950 452 949</a></p>
-            <p className="mb-2">📞 Cel 2: <a href="tel:948779008" className="hover:text-yellow-400 transition-colors">948 779 008</a></p>
-            <p className="mb-2">📧 <a href="mailto:llandotkd@gmail.com" className="hover:text-yellow-400 transition-colors">llandotkd@gmail.com</a></p>
-            <p className="mt-4">📍 Jr. Cápac Yupanqui #148<br />Baños del Inca, Cajamarca</p>
+            <p className="mb-2 flex items-center justify-center md:justify-start gap-2">
+              <FaPhone className="text-yellow-400" /> <a href="tel:950452949" className="hover:text-yellow-400 transition-colors">950 452 949</a>
+            </p>
+            <p className="mb-2 flex items-center justify-center md:justify-start gap-2">
+              <FaPhone className="text-yellow-400" /> <a href="tel:948779008" className="hover:text-yellow-400 transition-colors">948 779 008</a>
+            </p>
+            <p className="mb-2 flex items-center justify-center md:justify-start gap-2">
+              <FaEnvelope className="text-yellow-400" /> <a href="mailto:llandotkd@gmail.com" className="hover:text-yellow-400 transition-colors">llandotkd@gmail.com</a>
+            </p>
+            <p className="mt-4 flex items-start justify-center md:justify-start gap-2">
+              <FaMapMarkerAlt className="text-yellow-400 mt-1" /> <span>Jr. Cápac Yupanqui #148<br />Baños del Inca, Cajamarca</span>
+            </p>
           </div>
 
           {/* Columna 2: Redes sociales */}
