@@ -1,4 +1,15 @@
 import Image from "next/image";
+import { FaFacebook, FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa";
+import { redesSociales } from "../data/redes";
+
+
+// Mapa de iconos reales
+const iconos: Record<string, React.ReactNode> = {
+  facebook: <FaFacebook className="text-2xl text-blue-500" />,
+  youtube: <FaYoutube className="text-2xl text-red-600" />,
+  instagram: <FaInstagram className="text-2xl text-pink-500" />,
+  tiktok: <FaTiktok className="text-2xl text-white" />,
+};
 
 export default function Footer() {
   return (
@@ -20,24 +31,17 @@ export default function Footer() {
           {/* Columna 2: Redes sociales */}
           <div>
             <h3 className="text-xl font-bold uppercase mb-4 text-yellow-400">Síguenos</h3>
+            {redesSociales.map((red, i) => (
 
-            <a href="https://www.facebook.com/llandotkd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors text-lg"
-            >
-              <span className="text-2xl">📘</span> Facebook - Llan-Do TKD
-            </a>
-
-            <br />
-
-            <a href="https://www.youtube.com/@llandotaekwondo2941"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors text-lg mt-3"
-            >
-              <span className="text-2xl">▶️</span> YouTube - Llan-Do TKD
-            </a>
+              <a key={i}
+                href={red.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center md:justify-start gap-2 hover:text-yellow-400 transition-colors text-lg mb-3"
+              >
+                {iconos[red.icono]} {red.nombre}
+              </a>
+            ))}
           </div>
 
           {/* Columna 3: Logos afiliados */}
@@ -57,7 +61,7 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} Academia Taekwondo Llan-Do. Todos los derechos reservados.
             <span className="mx-3">|</span>
-            Hecho por{" "}
+            Diseñado por{" "}
             <a href="https://github.com/CapiDino"
               target="_blank"
               rel="noopener noreferrer"
