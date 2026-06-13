@@ -1,4 +1,5 @@
 import Carrusel from "./Carrusel";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function SobreNosotrosSection() {
   return (
@@ -23,15 +24,15 @@ export default function SobreNosotrosSection() {
           </p>
           <ul className="space-y-4 font-medium text-gray-800 inline-block text-left">
             <li className="flex items-center gap-3">
-              <span className="bg-yellow-400 text-[#0b1b3d] rounded-full w-6 h-6 flex items-center justify-center font-bold">✓</span> 
+              <FaCheckCircle className="text-[#0b1b3d] text-xl flex-shrink-0" />
               Clases para todas las edades y niveles.
             </li>
             <li className="flex items-center gap-3">
-              <span className="bg-yellow-400 text-[#0b1b3d] rounded-full w-6 h-6 flex items-center justify-center font-bold">✓</span> 
+              <FaCheckCircle className="text-[#0b1b3d] text-xl flex-shrink-0" />
               Defensa personal y acondicionamiento físico.
             </li>
             <li className="flex items-center gap-3">
-              <span className="bg-yellow-400 text-[#0b1b3d] rounded-full w-6 h-6 flex items-center justify-center font-bold">✓</span> 
+              <FaCheckCircle className="text-[#0b1b3d] text-xl flex-shrink-0" />
               Preparación para torneos locales y nacionales.
             </li>
           </ul>
