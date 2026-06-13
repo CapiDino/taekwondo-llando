@@ -48,7 +48,7 @@ function TarjetaPrincipio({ principio, delay }: { principio: any; delay: number 
         ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
     >
-      <div className="text-5xl mb-4">{principio.icono}</div>
+      <div className="mb-4">{iconos[principio.icono]}</div>
       <h3 className="text-2xl font-bold text-[#0b1b3d] uppercase mb-3">{principio.titulo}</h3>
       <p className="text-gray-600 text-sm leading-relaxed">{principio.descripcion}</p>
     </div>
