@@ -3,12 +3,12 @@ import { FaFacebook, FaYoutube, FaInstagram, FaTiktok, FaPhone, FaEnvelope, FaMa
 import { redesSociales } from "../data/redes";
 
 
-// Mapa de iconos reales
+// Mapa de iconos reales (aria-hidden porque son decorativos: el texto al lado ya los nombra)
 const iconos: Record<string, React.ReactNode> = {
-  facebook: <FaFacebook className="text-2xl text-blue-500" />,
-  youtube: <FaYoutube className="text-2xl text-red-600" />,
-  instagram: <FaInstagram className="text-2xl text-pink-500" />,
-  tiktok: <FaTiktok className="text-2xl text-white" />,
+  facebook: <FaFacebook className="text-2xl text-blue-500" aria-hidden="true" />,
+  youtube: <FaYoutube className="text-2xl text-red-600" aria-hidden="true" />,
+  instagram: <FaInstagram className="text-2xl text-pink-500" aria-hidden="true" />,
+  tiktok: <FaTiktok className="text-2xl text-white" aria-hidden="true" />,
 };
 
 export default function Footer() {
@@ -23,16 +23,16 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold uppercase mb-4 text-yellow-400">Contacto</h3>
             <p className="mb-2 flex items-center justify-center md:justify-start gap-2">
-              <FaPhone className="text-yellow-400" /> <a href="tel:950452949" className="hover:text-yellow-400 transition-colors">950 452 949</a>
+              <FaPhone className="text-yellow-400" aria-hidden="true" /> <a href="tel:950452949" className="hover:text-yellow-400 transition-colors">950 452 949</a>
             </p>
             <p className="mb-2 flex items-center justify-center md:justify-start gap-2">
-              <FaPhone className="text-yellow-400" /> <a href="tel:948779008" className="hover:text-yellow-400 transition-colors">948 779 008</a>
+              <FaPhone className="text-yellow-400" aria-hidden="true" /> <a href="tel:948779008" className="hover:text-yellow-400 transition-colors">948 779 008</a>
             </p>
             <p className="mb-2 flex items-center justify-center md:justify-start gap-2">
-              <FaEnvelope className="text-yellow-400" /> <a href="mailto:llandotkd@gmail.com" className="hover:text-yellow-400 transition-colors">llandotkd@gmail.com</a>
+              <FaEnvelope className="text-yellow-400" aria-hidden="true" /> <a href="mailto:llandotkd@gmail.com" className="hover:text-yellow-400 transition-colors">llandotkd@gmail.com</a>
             </p>
             <p className="mt-4 flex items-start justify-center md:justify-start gap-2">
-              <FaMapMarkerAlt className="text-yellow-400 mt-1" /> <span>Jr. Cápac Yupanqui #148<br />Baños del Inca, Cajamarca</span>
+              <FaMapMarkerAlt className="text-yellow-400 mt-1" aria-hidden="true" /> <span>Jr. Cápac Yupanqui #148<br />Baños del Inca, Cajamarca</span>
             </p>
           </div>
 
@@ -45,6 +45,7 @@ export default function Footer() {
                 href={red.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Síguenos en ${red.nombre}`}
                 className="flex items-center justify-center md:justify-start gap-2 hover:text-yellow-400 transition-colors text-lg mb-3"
               >
                 {iconos[red.icono]} {red.nombre}
@@ -65,7 +66,7 @@ export default function Footer() {
         </div>
 
         {/* Línea de copyright */}
-        <div className="border-t border-gray-600 mt-10 pt-6 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-600 mt-10 pt-6 text-center text-sm text-gray-300">
           <p>
             © {new Date().getFullYear()} Academia Taekwondo Llan-Do. Todos los derechos reservados.
             <span className="mx-3">|</span>

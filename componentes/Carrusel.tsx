@@ -97,17 +97,19 @@ export default function Carrusel() {
       {/* Flecha izquierda */}
       <button
         onClick={anterior}
+        aria-label="Imagen anterior"
         className="absolute left-0 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
       >
-        <FaChevronLeft />
+        <FaChevronLeft aria-hidden="true" />
       </button>
 
       {/* Flecha derecha */}
       <button
         onClick={siguiente}
+        aria-label="Imagen siguiente"
         className="absolute right-0 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors z-20"
       >
-        <FaChevronRight />
+        <FaChevronRight aria-hidden="true" />
       </button>
     
       {/* Puntos indicadores */}
@@ -116,6 +118,7 @@ export default function Carrusel() {
           <button
             key={i}
             onClick={() => setIndice(i)}
+            aria-label={`Ir a la imagen ${i + 1}`}
             className={`w-3 h-3 rounded-full transition-colors ${i === indice ? "bg-red-600" : "bg-gray-300"
               }`}
           />

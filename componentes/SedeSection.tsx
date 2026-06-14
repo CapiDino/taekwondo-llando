@@ -46,6 +46,7 @@ export default function SedeSection() {
         <div className="w-full max-w-4xl mx-auto h-[400px] bg-gray-100 rounded-2xl shadow-lg border-4 border-gray-200 flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group">
           <iframe
             src={sedeActiva.mapaUrl}
+            title={`Mapa de la sede ${sedeActiva.nombre}`}
             width="100%"
             height="100%"
             style={{ border: 0 }}
