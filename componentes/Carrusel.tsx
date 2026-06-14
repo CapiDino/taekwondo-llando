@@ -111,17 +111,21 @@ export default function Carrusel() {
       >
         <FaChevronRight aria-hidden="true" />
       </button>
-    
+
       {/* Puntos indicadores */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-1 mt-6">
         {contenidos.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndice(i)}
             aria-label={`Ir a la imagen ${i + 1}`}
-            className={`w-3 h-3 rounded-full transition-colors ${i === indice ? "bg-red-600" : "bg-gray-300"
-              }`}
-          />
+            className="p-2.5 flex items-center justify-center"
+          >
+            <span
+              className={`block w-3 h-3 rounded-full transition-colors ${i === indice ? "bg-red-600" : "bg-gray-300"
+                }`}
+            />
+          </button>
         ))}
       </div>
     </div>
