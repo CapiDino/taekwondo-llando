@@ -3,20 +3,40 @@
 import { useState } from "react";
 
 export default function FormularioContacto() {
-  // Función que bloquea números al escribir
-  const soloLetras = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.value = e.target.value.replace(/[0-9]/g, "");
+  // Guardamos lo que la persona escribe en cada campo
+  const [nombre, setNombre] = useState("");
+  const [apellidos, setApellidos] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [mensaje, setMensaje] = useState("");
+
+  // Función que se ejecuta al enviar el formulario
+  const enviarWhatsApp = (e: React.FormEvent) => {
+    e.preventDefault(); // Evita que la página se recargue
+
+    // Tu número para pruebas (luego se cambia al de la empresa)
+    const numeroDestino = "51956280006";
+
+    // Armamos el mensaje con los datos ingresados
+    const texto = `¡Hola! Soy ${nombre} ${apellidos}.
+
+${mensaje}`;
+
+    // Codificamos el texto para que funcione dentro de una URL
+    const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(texto)}`;
+
+    // Abrimos WhatsApp en una pestaña nueva
+    window.open(url, "_blank");
   };
 
-  // Función que bloquea letras al escribir
-  const soloNumeros = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, "");
-  };
+  // Bloquea números mientras se escribe (nombre/apellidos)
+  const soloLetras = (valor: string) => valor.replace(/[0-9]/g, "");
+
+  // Bloquea letras mientras se escribe (teléfono)
+  const soloNumeros = (valor: string) => valor.replace(/[^0-9]/g, "");
 
   return (
     <form
-      action="https://formspree.io/f/mrbkoreb"
-      method="POST"
+      onSubmit={enviarWhatsApp}
       className="max-w-xl mx-auto w-full bg-white shadow-xl rounded-2xl p-8 flex flex-col gap-5 border-t-4 border-[#0b1b3d]"
     >
 
@@ -25,10 +45,9 @@ export default function FormularioContacto() {
           <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Nombre</label>
           <input
             type="text"
-            name="nombre"
             required
-            onChange={soloLetras}
-            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
+            value={nombre}
+            onChange={(e) => setNombre(soloLetras(e.target.value))}
             className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
             placeholder="Tu nombre"
           />
@@ -37,32 +56,25 @@ export default function FormularioContacto() {
           <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Apellidos</label>
           <input
             type="text"
-            name="apellidos"
             required
-            onChange={soloLetras}
-            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+"
+            value={apellidos}
+            onChange={(e) => setApellidos(soloLetras(e.target.value))}
             className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
             placeholder="Tus apellidos"
           />
         </div>
       </div>
 
+      {/* Campo de teléfono obligatorio */}
       <div className="flex flex-col">
-        <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Email</label>
-        <input type="email" name="email" required className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" placeholder="tu@correo.com" />
-      </div>
-
-      {/* Campo de teléfono opcional */}
-      <div className="flex flex-col">
-        <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">
-          Teléfono <span className="text-gray-400 text-xs normal-case">(opcional)</span>
-        </label>
+        <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Teléfono</label>
         <input
           type="tel"
-          name="telefono"
+          required
           pattern="[0-9]{9}"
           maxLength={9}
-          onChange={soloNumeros}
+          value={telefono}
+          onChange={(e) => setTelefono(soloNumeros(e.target.value))}
           className="border-2 border-gray-200 rounded-lg p-3 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
           placeholder="999 999 999"
         />
@@ -70,10 +82,19 @@ export default function FormularioContacto() {
 
       <div className="flex flex-col">
         <label className="font-bold text-[#0b1b3d] mb-1 text-sm uppercase">Mensaje</label>
-        <textarea name="mensaje" required className="border-2 border-gray-200 rounded-lg p-3 h-32 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50" placeholder="¿En qué podemos ayudarte?"></textarea>
+        <textarea
+          required
+          value={mensaje}
+          onChange={(e) => setMensaje(e.target.value)}
+          className="border-2 border-gray-200 rounded-lg p-3 h-32 focus:border-[#0b1b3d] focus:outline-none transition-colors bg-gray-50"
+          placeholder="¿En qué podemos ayudarte?"
+        ></textarea>
       </div>
 
-      <button type="submit" className="bg-red-600 text-white font-bold uppercase tracking-wider py-4 mt-2 rounded-lg hover:bg-red-700 hover:shadow-lg transition-all">
+      <button
+        type="submit"
+        className="bg-red-600 text-white font-bold uppercase tracking-wider py-4 mt-2 rounded-lg hover:bg-red-700 hover:shadow-lg transition-all"
+      >
         Enviar Mensaje
       </button>
     </form>
