@@ -74,7 +74,7 @@ export default function Footer() {
             <a href="https://github.com/CapiDino"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-yellow-400 transition-colors"
+              className="text-white underline hover:text-yellow-400 transition-colors"
             >
               Cristopher Pulache
             </a>
